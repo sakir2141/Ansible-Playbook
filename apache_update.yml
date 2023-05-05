@@ -1,0 +1,7 @@
+--- # update httpd service on all machine
+- hosts: dev
+  user: ansible
+  become: yes
+  tasks:
+    - name: UPDATE HTTPD SERVICE ON ALL MACHINE
+      action: yum name=httpd state=latest

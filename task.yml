@@ -1,0 +1,9 @@
+--- # install httpd service on all hosts
+- hosts: dev
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: INSTALL HTTPD ON LINUX MACHINE
+      action: yum name=httpd state=installed
+

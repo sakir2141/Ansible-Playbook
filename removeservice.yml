@@ -1,0 +1,7 @@
+--- # Remove httpd service
+- hosts: dev
+  user: ansible
+  become: yes
+  tasks:
+    - name: UNINSTALL HTTPD SERVICE
+      action: yum name=httpd state=removed

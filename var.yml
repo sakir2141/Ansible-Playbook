@@ -1,0 +1,8 @@
+--- #  define variable
+- hosts: dev
+  become: yes
+  vars:
+    pkgname: docker
+  tasks:
+    - name: INSTALL DOCKER ON HOSTS
+      action: yum name='{{pkgname}}' state=installed
