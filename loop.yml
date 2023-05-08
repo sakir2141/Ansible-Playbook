@@ -1,0 +1,12 @@
+--- # LOOP EXAMPLE 
+
+- hosts: dev
+  become: yes
+  tasks:
+    - name: Create a list of users
+      user: name='{{item}}' state=present
+      with_items:
+        - sakir
+        - gizali
+        - meet
+        - harsh

@@ -1,0 +1,14 @@
+--- # Handlers 
+
+- hosts: dev
+  user: ansible
+  become: yes
+  tasks:
+    - name: Install httpd server on redhat
+      action: yum name=httpd state=installed
+      notify: restart httpd
+  handlers:
+    - name: restart httpd
+      action: service name=httpd state=restarted
+
+

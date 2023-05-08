@@ -1,0 +1,12 @@
+--- # Condation
+
+- hosts: dev
+  become: yes
+  tasks:
+    - name: update debian family machine
+      command: apt-get -y update
+      when: ansible_os_family == "debian"
+    - name: update redtat family machine
+      command: yum -y update
+      when: ansible_os_family == "redhat"
+
