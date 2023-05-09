@@ -1,0 +1,20 @@
+--- # example playbook for playbook_formate 
+
+-
+  name: Play1
+  hosts: dev
+  become: yes
+  user: ansible
+  tasks:
+    - name: update the redhat machine
+      command: yum -y update
+
+-
+  name: Play2
+  hosts: dev
+  become: yes
+  user: ansible
+  tasks:
+    - name: installing of tree package
+      action: yum name=tree state=installed
+
