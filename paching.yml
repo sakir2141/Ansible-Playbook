@@ -1,0 +1,31 @@
+---
+- name: Patch Fixing Playbook
+  hosts: soc
+  become: yes
+  
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install security updates
+      apt:
+        upgrade: yes
+        only_upgrade: yes
+        security: yes
+        autoremove: yes
+        force_apt_get: yes
+      register: result
+      
+    - name: Check if any updates were applied
+      debug:
+        var: result.stdout_lines
+        
+    - name: Restart services
+      service:
+        name: "{{ item }}"
+        state: restarted
+      with_items:
+        - apache2
+        - nginx
+
